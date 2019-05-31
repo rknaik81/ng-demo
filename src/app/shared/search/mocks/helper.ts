@@ -22,7 +22,7 @@ export class SpyObject {
     const m = {};
     Object.keys(config).forEach((key) => m[key] = config[key]);
     Object.keys(overrides).forEach((key) => m[key] = overrides[key]);
-    for (const key in m) {
+    for (const key of Object.keys(m)) {
       object.spy(key).andReturn(m[key]);
     }
     return object;
@@ -30,7 +30,7 @@ export class SpyObject {
 
   constructor(type = null) {
     if (type) {
-      for (const prop in type.prototype) {
+      for (const prop of Object.keys(type.prototype)) {
         let m = null;
         try {
           m = type.prototype[prop];
