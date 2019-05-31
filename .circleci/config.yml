@@ -87,7 +87,7 @@ jobs:
                     fi
 workflows:
     version: 2
-    # The build and deploy workflow
+    # The build and deploy workflow.
     build_and_deploy:
         jobs:
             - build
